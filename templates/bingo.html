@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Custom Bingo Card</title>
+    <link rel="stylesheet" rev="stylesheet" href="{{ url_for('static', filename='css/bingo.css') }}" />
+    <script type="text/javascript" src="{{ url_for('static', filename='js/bingo.js') }}"></script>
+    <meta http-equiv="refresh" content="1">
+</head>
+<body background = "{{ url_for('static', filename='img/bg.png') }}" >
+   
+<table>
+    <!-- <tr border: 10px solid transparent>
+        <th width="4%" colspan="5" class = "heading">MAAYA</th>
+    </tr> -->
+    <tr border: 10px solid transparent>
+    <th width="4%" colspan="5" class = "subheading"> <img src ="{{ url_for('static', filename='img/logo.png') }}" alt="logo" width="350" height="90"></th>
+    </tr>
+
+    <!-- Use JavaScript to generate the table rows and cells -->
+    <script>
+        const numRows = 5;
+        const numCols = 5;
+
+        for (let row = 0; row < numRows; row++) {
+            document.write('<tr>');
+            for (let col = 0; col < numCols; col++) {
+                const cellId = "square" + (row * numCols + col);
+                document.write('<td class="content" id="' + cellId + '">&nbsp;</td>');
+            }
+            document.write('</tr>');
+        }
+    </script>
+</table>
+
+<p><a href="bingo-card.html" id="reload"></a></p>
+</body>
+</html>
